@@ -2,14 +2,9 @@
 import numpy as np
 import pandas as pd
 import os
-import sys
 from sklearn.feature_extraction.text import CountVectorizer
 import yaml
-#since src.logger is not working we are adding the project root manually
-# Add project root to path
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, project_root)
-from logger import logging
+from src.logger import logging
 import pickle
 
 
