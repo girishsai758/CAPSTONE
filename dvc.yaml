@@ -39,6 +39,7 @@ stages:
 
   model_evaluation:
     cmd: python src/model/model_evaluation.py
+    
     deps:
     - models/model.pkl
     - src/model/model_evaluation.py

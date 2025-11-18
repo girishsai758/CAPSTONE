@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = ../girish12345678990
+    url = s3://girish12345678990
