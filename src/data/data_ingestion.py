@@ -4,6 +4,7 @@ import pandas as pd
 pd.set_option('future.no_silent_downcasting', True)
 import sys
 import os
+
 #since src.logger is not working we are adding the project root manually
 # Add project root to path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
