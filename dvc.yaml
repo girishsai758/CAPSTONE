@@ -11,10 +11,10 @@ stages:
     - data/raw
 
   data_preprocessing:
-    cmd: python src/data/data_pre_processing.py
+    cmd: python src/data/data_preprocessing.py
     deps:
     - data/raw
-    - src/data/data_pre_processing.py
+    - src/data/data_preprocessing.py
     outs:
     - data/interim
 
@@ -48,7 +48,7 @@ stages:
     - reports/experiment_info.json  # Add the model_info.json file as an output
 
   model_registration:
-    cmd: python src/model/registermodel.py
+    cmd: python src/model/register_model.py
     deps:
     - reports/experiment_info.json
-    - src/model/registermodel.py
+    - src/model/register_model.py
