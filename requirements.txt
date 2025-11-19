@@ -17,7 +17,8 @@ attrs==23.2.0
 awscli
 backoff==2.2.1
 billiard==4.2.0
-blinker==1.8.2
+blinker==1.9.0
+boto==2.49.0
 boto3==1.34.131
 botocore
 cachetools==5.4.0
@@ -58,7 +59,9 @@ dvc-studio-client==0.21.0
 dvc-task==0.4.0
 entrypoints==0.4
 filelock==3.15.4
-Flask==3.0.3
+Flask==3.1.2
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.5
 flatten-dict==0.4.2
 flufl.lock==8.1.0
 fonttools==4.53.1
@@ -120,6 +123,7 @@ pyarrow==15.0.2
 pyasn1==0.6.0
 pyasn1_modules==0.4.0
 pycparser==2.22
+
 pydantic==2.8.2
 pydantic_core==2.20.1
 pydot==3.0.1
@@ -169,7 +173,7 @@ vine==5.1.0
 voluptuous==0.15.2
 waitress==3.0.0
 wcwidth==0.2.13
-Werkzeug==3.0.3
+Werkzeug==3.1.0
 wrapt==1.16.0
 yarl==1.9.4
 zc.lockfile==3.0.post1
