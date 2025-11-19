@@ -26,7 +26,7 @@ if not dagshub_token:
 os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
 os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-dagshub_url = "https://dagshub.com/girishsai758/CAPSTONE.mlflow"
+dagshub_url = "https://dagshub.com"
 repo_owner = "girishsai758"
 repo_name = "CAPSTONE"
 
