@@ -39,6 +39,7 @@ def load_data(file_path: str) -> pd.DataFrame:
         logging.error('Unexpected error occurred while loading the data: %s', e)
         raise
 
+# src/features/feature_engineering.py (Corrected)
 def apply_bow(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features: int) -> tuple:
     """Apply Count Vectorizer to the data."""
     try:
@@ -50,6 +51,7 @@ def apply_bow(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features: i
         X_test = test_data['review'].values
         y_test = test_data['sentiment'].values
 
+        # 1. FIT AND TRANSFORM
         X_train_bow = vectorizer.fit_transform(X_train)
         X_test_bow = vectorizer.transform(X_test)
 
@@ -59,8 +61,15 @@ def apply_bow(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features: i
         test_df = pd.DataFrame(X_test_bow.toarray())
         test_df['label'] = y_test
 
-        pickle.dump(vectorizer, open('models/vectorizer.pkl', 'wb'))
-        logging.info('Bag of Words applied and data transformed')
+        # 2. ENSURE DIRECTORY EXISTS BEFORE SAVING
+        vectorizer_path = 'models/vectorizer.pkl'
+        os.makedirs(os.path.dirname(vectorizer_path), exist_ok=True) # <-- ADD THIS LINE
+
+        # 3. SAVE THE VECTORIZER
+        with open(vectorizer_path, 'wb') as f:
+            pickle.dump(vectorizer, f)
+            
+        logging.info('Bag of Words applied and vectorizer saved to %s', vectorizer_path)
 
         return train_df, test_df
     except Exception as e:
