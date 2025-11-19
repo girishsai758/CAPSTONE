@@ -31,14 +31,14 @@ repo_owner = "girishsai758"
 repo_name = "CAPSTONE"
 # Set up MLflow tracking URI
 mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
-# -------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
 
 # Below code block is for local use
 # -------------------------------------------------------------------------------------
 # mlflow.set_tracking_uri('https://dagshub.com/girishsai758/CAPSTONE.mlflow')
 # dagshub.init(repo_owner='girishsai758', repo_name='CAPSTONE', mlflow=True)
-# # # -------------------------------------------------------------------------------------
+# # -------------------------------------------------------------------------------------
 
 
 def load_model_info(file_path: str) -> dict:
