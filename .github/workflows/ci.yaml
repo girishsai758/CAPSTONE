@@ -95,7 +95,9 @@ jobs:
           kubectl create secret generic capstone-secret \
             --from-literal=CAPSTONE_TEST=${{ secrets.CAPSTONE_TEST }} --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Deploy to EKS
+      - name: Deploy to EKS and Trigger Rollout
         run: |
-          kubectl apply -f deployment.yaml
+          ECR_IMAGE_URI="${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest"
+          kubectl set image deployment/flask-deployment flask-app=$ECR_IMAGE_URI
+          kubectl rollout status deployment/flask-deployment --timeout=5m
  
