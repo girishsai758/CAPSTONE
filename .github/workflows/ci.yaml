@@ -97,5 +97,7 @@ jobs:
 
       - name: Deploy to EKS and Trigger Rollout 🚀
         run: |
-         
-         kubectl apply -f deployment.yaml
+          ECR_IMAGE_URI="${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest"
+          kubectl apply -f deployment.yaml
+          kubectl set image deployment/flaskapp flaskapp=$ECR_IMAGE_URI
+          kubectl rollout status deployment/flaskapp --timeout=5m
